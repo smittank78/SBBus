@@ -1,0 +1,38 @@
+create one config server.
+
+which takes dependency as follow:
+
+1.spring-cloud-config-server
+2.spring-cloud-starter-bus-amqp
+3.spring-boot-starter-actuator
+4.spring-boot-starter-webflux
+
+configure properties :
+
+disable  cloud.config.enable
+add git repo and also provide default-branch-name
+rabbit-mq credantials
+enable actuators
+
+create client.
+
+create client which conncet with rabbit-bus.
+
+which takes dependency as follow:
+
+1.spring-cloud-config-client
+2.spring-cloud-starter-bus-amqp
+3.spring-boot-starter-actuator
+4.spring-boot-starter-webflux
+
+configuration properties :
+
+spring.config.import = configserver:http://localhost:8888
+rabbit-mq credantials
+enable actuators
+
+using environment object you can fetch data from git and by default configured in application.properties because we are importing from config server.
+
+
+when file updated , send request to http://localhost:8888/actuator/busrefresh . so values updated in all connceted applications with that rabbitmq bus.
+

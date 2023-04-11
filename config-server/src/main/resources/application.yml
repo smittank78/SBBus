@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          username: smittank78
+          password: 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
+          uri: https://github.com/smittank78/Creds
+          default-label: main
+      enabled: false
+
+  rabbitmq:
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: rabitmq_host
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

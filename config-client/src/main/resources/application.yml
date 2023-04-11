@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Test
+  config:
+    import: "configserver:http://localhost:8080"
+  rabbitmq:
+    virtual-host: rabitmq_host
+    username: admin
+    password: admin
+    port: 5672
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          username: smittank78
+#          password: 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    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
